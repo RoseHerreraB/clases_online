@@ -18,8 +18,6 @@ return new class extends Migration
             $table->decimal('precio_hora');
             $table->integer('cantidad_horas');
             $table->timestamps();
-            
-
         });
     }
 

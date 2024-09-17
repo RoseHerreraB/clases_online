@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Producto;
+
 use Illuminate\Http\Request;
+use App\Models\Producto;
 
 class ProductoController extends Controller
-{
+{   
    
     public function index()
     {
@@ -23,19 +24,20 @@ class ProductoController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {    // Validar Productos 
-        $datos = $request->validate([
-            'asignatura' =>['required', 'string', 'max:100'],
-            'descripcion' =>['nullable','string', 'max:255'],
-            'precio_hora' =>['required', 'integer', 'min:1000'],
-            'cantidad_hora' =>['required', 'integer','min:1'],
-     ]);
-     //Guardar Datos
-        $producto = Producto::create($datos);
-     // Respuesta al Cliente
-        return response()->json(['success' => true, 'message' => 'Producto creado'], 201); 
-
+    {
+    // Validar Productos
+    $datos = $request->validate([
+   'asignatura' =>['required', 'string', 'max:100'],
+   'descripcion' =>['nullable','string', 'max:255'],
+   'precio_hora' =>['required', 'integer', 'min:1000'],
+   'cantiad_horas' =>['required', 'integer','min:1'],
+    ]);
+    //Guardar Datos
+    $producto = Producto::create($datos);
+    // Respuesta al Cliente
+   return response()->json(['success' => true, 'message' => 'Producto creado'], 201);
     }
+   
 
     /**
      * Display the specified resource.
@@ -62,11 +64,11 @@ class ProductoController extends Controller
             'descripcion' =>['nullable','string', 'max:255'],
             'precio_hora' =>['required', 'integer', 'min:1000'],
             'cantidad_hora' =>['required', 'integer','min:1'],
-         ]);  
-        // Actualizar Producto
-        $producto->update($datos);
-        // Respuesta al Cliente
-        return response()->json(['success' => true,'message' => 'Producto actualizado'], 200); 
+         ]);
+          // Actualizar Producto
+     $producto->update($datos);
+ // Respuesta al Cliente
+ return response()->json(['success' => true,'message' => 'Producto actualizado'], 200); 
     }
 
     /**
