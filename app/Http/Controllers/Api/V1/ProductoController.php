@@ -17,6 +17,7 @@ class ProductoController extends Controller
     
     public function create()
     { 
+        echo "Hola esqtoy aqui create";
         //
     }
 
@@ -30,7 +31,7 @@ class ProductoController extends Controller
    'asignatura' =>['required', 'string', 'max:100'],
    'descripcion' =>['nullable','string', 'max:255'],
    'precio_hora' =>['required', 'integer', 'min:1000'],
-   'cantiad_horas' =>['required', 'integer','min:1'],
+   'cantidad_horas' =>['required', 'integer','min:1'],
     ]);
     //Guardar Datos
     $producto = Producto::create($datos);
@@ -63,7 +64,7 @@ class ProductoController extends Controller
             'asignatura' =>['required', 'string', 'max:100'],
             'descripcion' =>['nullable','string', 'max:255'],
             'precio_hora' =>['required', 'integer', 'min:1000'],
-            'cantidad_hora' =>['required', 'integer','min:1'],
+            'cantidad_horas' =>['required', 'integer','min:1'],
          ]);
           // Actualizar Producto
      $producto->update($datos);
