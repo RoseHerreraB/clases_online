@@ -18,8 +18,9 @@ class ProductoController extends Controller
     
     public function create()
     { 
-        echo "Hola esqtoy aqui create";
-        //
+        //echo "Hola esqtoy aqui create";
+        
+        return view("productos.create");
     }
 
     /**
@@ -28,18 +29,25 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
     // Validar Productos
-    $datos = $request->validate([
-   'asignatura' =>['required', 'string', 'max:100'],
-   'descripcion' =>['nullable','string', 'max:255'],
-   'precio_hora' =>['required', 'integer', 'min:1000'],
-   'cantidad_horas' =>['required', 'integer','min:1'],
-    ]);
-    //Guardar Datos
-    $producto = Producto::create($datos);
-    // Respuesta al Cliente
-   return response()->json(['success' => true, 'message' => 'Producto creado'], 201);
+   // $datos = $request->validate([
+   //'asignatura' =>['required', 'string', 'max:100'],
+   //'descripcion' =>['nullable','string', 'max:255'],
+   //'precio_hora' =>['required', 'integer', 'min:1000'],
+   //'cantidad_horas' =>['required', 'integer','min:1'],
+    //]);
+    
+     Producto::create($request->all());
+     return redirect()->route('productos.index');                                                                                              
+
+
+  //Guardar Datos
+   // $producto = Producto::create($datos);
+   // Respuesta al Cliente
+   //return response()->json(['success' => true, 'message' => 'Producto creado'], 201);
+
     }
-   
+
+  
 
     /**
      * Display the specified resource.
@@ -52,7 +60,7 @@ class ProductoController extends Controller
 
     public function edit(Producto $producto)
     {
-        //
+        return view("productos.edit", compact('productos') );
     }
 
     /**
@@ -61,16 +69,25 @@ class ProductoController extends Controller
     public function update(Request $request, Producto $producto)
     {  
          // Validar datos de entrada
-        $datos = $request->validate([
-            'asignatura' =>['required', 'string', 'max:100'],
-            'descripcion' =>['nullable','string', 'max:255'],
-            'precio_hora' =>['required', 'integer', 'min:1000'],
-            'cantidad_horas' =>['required', 'integer','min:1'],
-         ]);
+       
+       
+       
+         // $datos = $request->validate([
+         //   'asignatura' =>['required', 'string', 'max:100'],
+           // 'descripcion' =>['nullable','string', 'max:255'],
+           // 'precio_hora' =>['required', 'integer', 'min:1000'],
+            //'cantidad_horas' =>['required', 'integer','min:1'],
+         //]);
           // Actualizar Producto
-     $producto->update($datos);
+     //$producto->update($datos);
  // Respuesta al Cliente
- return response()->json(['success' => true,'message' => 'Producto actualizado'], 200); 
+ //return response()->json(['success' => true,'message' => 'Producto actualizado'], 200); 
+
+        $producto->update($request->all());
+        return redirect() -> route('productos.index');
+
+
+
     }
 
     /**
@@ -81,7 +98,8 @@ class ProductoController extends Controller
         // Eliminar Producto
         $producto->delete();
         // Respuesta al Cliente
-        return response()->json(['success' => true,'message' => 'Producto eliminado'], 200);
+       // return response()->json(['success' => true,'message' => 'Producto eliminado'], 200);
+       return redirect() -> route ('productos.index');
 
     }
 }
