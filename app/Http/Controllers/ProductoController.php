@@ -2,21 +2,23 @@
 
 namespace App\Http\Controllers;
 
-
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\Producto;
+use Illuminate\Http\Request;
 
 class ProductoController extends Controller
-{   
+{
    
     public function index()
     {
-        return response()->json(Producto::all(), 200); //200: OK
+        $productos = Producto::all(); // Obtener todos los productos
+        return view('productos.index', compact('productos')); // Retornar la vista con los productos
     }
 
     
     public function create()
     { 
+        echo "Hola esqtoy aqui create";
         //
     }
 
@@ -30,7 +32,7 @@ class ProductoController extends Controller
    'asignatura' =>['required', 'string', 'max:100'],
    'descripcion' =>['nullable','string', 'max:255'],
    'precio_hora' =>['required', 'integer', 'min:1000'],
-   'cantiad_horas' =>['required', 'integer','min:1'],
+   'cantidad_horas' =>['required', 'integer','min:1'],
     ]);
     //Guardar Datos
     $producto = Producto::create($datos);
@@ -63,7 +65,7 @@ class ProductoController extends Controller
             'asignatura' =>['required', 'string', 'max:100'],
             'descripcion' =>['nullable','string', 'max:255'],
             'precio_hora' =>['required', 'integer', 'min:1000'],
-            'cantidad_hora' =>['required', 'integer','min:1'],
+            'cantidad_horas' =>['required', 'integer','min:1'],
          ]);
           // Actualizar Producto
      $producto->update($datos);
