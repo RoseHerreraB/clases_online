@@ -6,12 +6,12 @@
  <div class="card bg-base-100 w-96 shadow-2xl">
  <form class="card-body" action="{{ route('productos.store') }}" method="POST">
  @csrf
- {{-- Nombre --}}
+ {{-- asignatura--}}
  <div class="form-control">
  <label class="label">
  <span class="label-text">Asignatura</span>
  </label>
- <input type="text" name="nombre" placeholder="Nombre de la asignatura"
+ <input type="text" name="asignatura" placeholder="Nombre de la asignatura"
 class="input input-bordered" required />
  </div>
  {{-- Descripción --}}
@@ -27,15 +27,15 @@ class="input input-bordered" />
  <label class="label">
  <span class="label-text">Precio por hora</span>
  </label>
- <input type="number" name="precio por hora" placeholder="Precio" class="input
+ <input type="number" name="precio_hora" placeholder="Precio" class="input
 input-bordered" required />
  </div>
- {{-- Stock --}}
+ {{-- cantidad_horas --}}
  <div class="form-control">
  <label class="label">
  <span class="label-text">Cantidad de horas</span>
  </label>
- <input type="number" name="stock" placeholder="Cantidad de horas" class="input inputbordered" required />
+ <input type="number" name="cantidad_horas" placeholder="Cantidad de horas" class="input inputbordered" required />
  </div>
  {{-- botones --}}
  <div class="form-control mt-6">

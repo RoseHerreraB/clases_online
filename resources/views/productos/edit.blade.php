@@ -8,12 +8,12 @@
 method="POST">
  @csrf
  @method('PUT')
- {{-- Nombre --}}
+ {{-- Asignatura --}}
  <div class="form-control">
  <label class="label">
  <span class="label-text">Asignatura</span>
  </label>
- <input type="text" name="nombre" value="{{ $producto->asignatura }}"
+ <input type="text" name="asignatura" value="{{ $producto->asignatura }}"
 placeholder="Nombre del producto" class="input input-bordered" required />
  </div>
  {{-- Descripción --}}
@@ -29,15 +29,15 @@ placeholder="Descripción" class="input input-bordered" />
  <label class="label">
  <span class="label-text">Precio</span>
  </label>
- <input type="number" name="precio" value="{{ $producto->precio_hora }}"
+ <input type="number" name="precio_hora" value="{{ $producto->precio_hora }}"
 placeholder="Precio" class="input input-bordered" required />
  </div>
- {{-- Stock --}}
+ {{-- Cantidad hora --}}
  <div class="form-control">
  <label class="label">
  <span class="label-text">Cantidad hora</span>
  </label>
- <input type="number" name="stock" value="{{ $producto->cantidad_horas}}"
+ <input type="number" name="cantidad_horas" value="{{ $producto->cantidad_horas}}"
 placeholder="Stock" class="input input-bordered" required />
  </div>
  {{-- Botones --}}

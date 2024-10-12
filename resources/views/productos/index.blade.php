@@ -25,10 +25,11 @@
         <div class="card-actions justify-end">
             <a href="{{ route('productos.edit', $producto->id) }}" class="btn btn-outline btn-xs" >Edit</a>
             <form action="{{ route('productos.destroy', $producto->id) }}" method="POST">
+              @csrf
               @method('DELETE')
               <button type="submit" class="btn btn-outline btn-xs">Eliminar</button>
              </form>
-          <button class="btn btn-primary">Agendar</button>
+          
         </div>
      </div>
   </div>
