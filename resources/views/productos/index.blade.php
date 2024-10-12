@@ -20,14 +20,14 @@
       <div class="card-body">
         <h2 class="card-title">{{$producto->asignatura}}</h2>
         <p>{{$producto->descripcion}}</p>
-        precio_hora: <div class="badge badge-outline">{{ $producto->precio_hora}}</div>
-        cantidad_horas: <div class="badge badge-outline">{{ $producto->cantidad_horas}}</div>
+        precio: <div class="badge badge-outline">{{ $producto->precio_hora}}</div>
+        cantidad: <div class="badge badge-outline">{{ $producto->cantidad_horas}}</div>
         <div class="card-actions justify-end">
             <a href="{{ route('productos.edit', $producto->id) }}" class="btn btn-outline btn-xs" >Edit</a>
             <form action="{{ route('productos.destroy', $producto->id) }}" method="POST">
-          
-                <button type="submit" class="btn btn-outline btn-xs">Eliminar</button>
-            </form>
+              @method('DELETE')
+              <button type="submit" class="btn btn-outline btn-xs">Eliminar</button>
+             </form>
           <button class="btn btn-primary">Agendar</button>
         </div>
      </div>

@@ -6,8 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 
+
 class ProductoController extends Controller
-{
+{                                                                                                               
    
     public function index()
     {
@@ -18,14 +19,11 @@ class ProductoController extends Controller
     
     public function create()
     { 
-        //echo "Hola esqtoy aqui create";
-        
+        //echo "Hola esqtoy aqui create";   
         return view("productos.create");
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
     // Validar Productos
@@ -60,7 +58,7 @@ class ProductoController extends Controller
 
     public function edit(Producto $producto)
     {
-        return view("productos.edit", compact('productos') );
+        return view("productos.edit", compact('producto') );
     }
 
     /**
@@ -84,7 +82,7 @@ class ProductoController extends Controller
  //return response()->json(['success' => true,'message' => 'Producto actualizado'], 200); 
 
         $producto->update($request->all());
-        return redirect() -> route('productos.index');
+        return redirect()->route('productos.index');
 
 
 
@@ -99,7 +97,7 @@ class ProductoController extends Controller
         $producto->delete();
         // Respuesta al Cliente
        // return response()->json(['success' => true,'message' => 'Producto eliminado'], 200);
-       return redirect() -> route ('productos.index');
+       return redirect()->route ('productos.index');
 
     }
 }

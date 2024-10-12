@@ -9,9 +9,9 @@
  {{-- Nombre --}}
  <div class="form-control">
  <label class="label">
- <span class="label-text">Nombre</span>
+ <span class="label-text">Asignatura</span>
  </label>
- <input type="text" name="nombre" placeholder="Nombre del producto"
+ <input type="text" name="nombre" placeholder="Nombre de la asignatura"
 class="input input-bordered" required />
  </div>
  {{-- Descripción --}}
@@ -25,17 +25,17 @@ class="input input-bordered" />
  {{-- Precio --}}
  <div class="form-control">
  <label class="label">
- <span class="label-text">Precio</span>
+ <span class="label-text">Precio por hora</span>
  </label>
- <input type="number" name="precio" placeholder="Precio" class="input
+ <input type="number" name="precio por hora" placeholder="Precio" class="input
 input-bordered" required />
  </div>
  {{-- Stock --}}
  <div class="form-control">
  <label class="label">
- <span class="label-text">Stock</span>
+ <span class="label-text">Cantidad de horas</span>
  </label>
- <input type="number" name="stock" placeholder="Stock" class="input inputbordered" required />
+ <input type="number" name="stock" placeholder="Cantidad de horas" class="input inputbordered" required />
  </div>
  {{-- botones --}}
  <div class="form-control mt-6">

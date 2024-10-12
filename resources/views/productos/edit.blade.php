@@ -11,9 +11,9 @@ method="POST">
  {{-- Nombre --}}
  <div class="form-control">
  <label class="label">
- <span class="label-text">Nombre</span>
+ <span class="label-text">Asignatura</span>
  </label>
- <input type="text" name="nombre" value="{{ $producto->nombre }}"
+ <input type="text" name="nombre" value="{{ $producto->asignatura }}"
 placeholder="Nombre del producto" class="input input-bordered" required />
  </div>
  {{-- Descripción --}}
@@ -21,7 +21,7 @@ placeholder="Nombre del producto" class="input input-bordered" required />
  <label class="label">
  <span class="label-text">Descripción</span>
  </label>
- <input type="text" name="descripcion" value="{{ $producto->descripcion }}"
+ <input type="text" name="descripcion" value="{{ $producto->descripcion}}"
 placeholder="Descripción" class="input input-bordered" />
  </div>
  {{-- Precio --}}
@@ -29,15 +29,15 @@ placeholder="Descripción" class="input input-bordered" />
  <label class="label">
  <span class="label-text">Precio</span>
  </label>
- <input type="number" name="precio" value="{{ $producto->precio }}"
+ <input type="number" name="precio" value="{{ $producto->precio_hora }}"
 placeholder="Precio" class="input input-bordered" required />
  </div>
  {{-- Stock --}}
  <div class="form-control">
  <label class="label">
- <span class="label-text">Stock</span>
+ <span class="label-text">Cantidad hora</span>
  </label>
- <input type="number" name="stock" value="{{ $producto->stock }}"
+ <input type="number" name="stock" value="{{ $producto->cantidad_horas}}"
 placeholder="Stock" class="input input-bordered" required />
  </div>
  {{-- Botones --}}
